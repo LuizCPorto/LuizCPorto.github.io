@@ -1,0 +1,82 @@
+// Textos da interface em português. As chaves são usadas por [data-i18n] no HTML e por t() no JS.
+export default {
+  // nav
+  'nav.home': 'Início',
+  'nav.sections': 'Seções',
+  'nav.commands': 'comandos',
+  'nav.openPalette': 'Abrir paleta de comandos',
+  'nav.lang': 'Idioma: português. Mudar para inglês',
+
+  // hero
+  'hero.local': 'local',
+  'hero.uptime': 'uptime no TJTO',
+  'hero.uptimeFmt': '{y}a {m}m {d}d',
+  'hero.newTab': '(abre em nova aba)',
+
+  // terminal
+  'term.title': 'Terminal interativo',
+  'term.output': 'Saída do terminal',
+  'term.input': 'Comando do terminal',
+  'term.placeholder': 'digite help',
+  'term.lastLogin': 'last login: hoje, de algum lugar de Palmas',
+  'term.hint': '<span class="dim">digite</span> <span class="g">help</span> <span class="dim">ou clique num comando ↓</span>',
+  'term.available': 'comandos disponíveis:',
+  'term.private': 'privado',
+  'term.open': 'abrir',
+  'term.scrolling': '→ rolando até ~/projetos',
+  'term.grade': 'nota',
+  'term.contactHint': '<span class="dim">digite </span><span class="g">copiar</span><span class="dim"> para copiar o e-mail</span>',
+  'term.copied': '✓ e-mail copiado',
+  'term.copyFail': 'não consegui copiar daqui. selecione o e-mail acima.',
+  'term.coffee': '☕ café servido. <span class="dim">restam {n} na garrafa</span>',
+  'term.teapot': '<span class="y">erro 418:</span> sou um bule e a garrafa acabou',
+  'term.sudo': '[sudo] senha para recrutador: ********\n<span class="g">acesso concedido.</span> abrindo ~/contato.sh ...',
+  'term.sudoUsage': '<span class="y">uso:</span> sudo contratar',
+  'term.exit': 'não dá pra sair. você mora aqui agora.',
+  'term.notFound': 'zsh: comando não encontrado: {c} <span class="dim">· tente</span> <span class="g">help</span>',
+
+  // paleta
+  'pal.label': 'Paleta de comandos',
+  'pal.search': 'Buscar comando',
+  'pal.placeholder': 'para onde? (ex.: projetos, github, café)',
+  'pal.goto': 'ir para {f}',
+  'pal.github': 'abrir GitHub',
+  'pal.linkedin': 'abrir LinkedIn',
+  'pal.copy': 'copiar e-mail',
+  'pal.coffee': 'pedir um café no terminal',
+  'pal.kSection': 'seção',
+  'pal.kLink': 'link',
+  'pal.kAction': 'ação',
+  'pal.kSecret': 'segredo',
+  'pal.empty': 'nada por aqui. tente "projetos"',
+  'pal.nav': 'navegar',
+  'pal.open': 'abrir',
+  'pal.close': 'fechar',
+
+  // cards de projetos
+  'proj.private': 'Privado',
+  'proj.codePrivate': '🔒 Código privado',
+
+  'toast.copied': 'e-mail copiado',
+
+  // seções (migradas do site antigo)
+  'title-sobre': 'Desenvolvedor apaixonado<br>por sistemas que fazem diferença',
+  'sobre-p1': 'Sou desenvolvedor de software júnior com experiência em sistemas institucionais, atuando principalmente com C#, ASP.NET Core, SQL, APIs REST e integrações entre plataformas. Na ESMAT/TJTO, atuo com autonomia no ciclo completo de desenvolvimento do levantamento de requisitos ao deploy.',
+  'sobre-p2': 'Desenvolvi integrações com APIs institucionais, sincronização com o Moodle e automação de processos acadêmicos com apoio da Vertex AI (Google Cloud), reduzindo etapas manuais e melhorando o fluxo operacional do setor.',
+  'sobre-p3': 'Estou concluindo o Bacharelado em Ciência da Computação pela UFT (previsão julho/2026), com TCC aprovado com nota 10. Também possuo formação técnica em Informática pelo IFBA.',
+  'btn-cv': '↓ Baixar currículo',
+  'info-loc': 'Localização', 'info-loc-val': 'Palmas, Tocantins — Brasil',
+  'info-stack': 'Stack principal',
+  'info-lang': 'Idiomas', 'info-lang-val': 'Português (nativo) · Inglês (intermediário)',
+  'info-avail': 'Disponibilidade', 'info-avail-val': 'Aberto a oportunidades CLT ou PJ',
+  'tcc-badge': 'Trabalho de Conclusão de Curso · Aprovado com Nota 10',
+  'tcc-title': 'O uso de Beacons Bluetooth Low Energy (BLE) para frequência na ESMAT',
+  'tcc-desc': 'Proposta e validação de um modelo arquitetural para controle automatizado de frequência escolar usando tecnologia BLE/IoT, integrado ao aplicativo da Secretaria Acadêmica Virtual (SAV) da ESMAT. Elimina chamadas manuais e reduz falhas humanas na gestão acadêmica.',
+  'title-exp': 'Experiência profissional',
+  'title-proj': 'Projetos em destaque',
+  'title-skills': 'Habilidades técnicas',
+  'title-certs': 'Certificações',
+  'contact-title': 'Vamos construir<br>algo juntos?',
+  'contact-sub': 'Aberto a oportunidades CLT, PJ ou freela.',
+  'footer': '© 2026 Luiz Carlos Porto do Carmo.',
+};

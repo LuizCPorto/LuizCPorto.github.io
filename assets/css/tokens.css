@@ -1,0 +1,36 @@
+/* Tokens do DESIGN.md. Nenhuma cor literal fora deste arquivo. */
+:root {
+  color-scheme: dark;
+
+  /* cores */
+  --bg: #0E110F;
+  --surface: #151A16;
+  --surface-2: #1B221D;
+  --line: #26302A;
+  --fg: #E4EAE5;
+  --muted: #8C988F;
+  --green: #7BE495;
+  --green-deep: #3FAE60;
+  --glow: rgba(123, 228, 149, .18);
+  --pop: #F3CF5A;
+  --red: #E5736A;          /* só a bolinha da barra do terminal */
+  --shade: #000;           /* base das sombras de janela e do overlay */
+
+  /* tipografia */
+  --font-display: "Martian Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-body: "Geist", "Segoe UI", system-ui, sans-serif;
+  --step--1: .8125rem;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-3: clamp(2.4rem, 6.4vw, 4.6rem);
+
+  /* forma e movimento */
+  --radius-btn: 6px;
+  --radius-win: 10px;
+  --radius-pill: 999px;
+  --nav-h: 60px;
+  --container: 1160px;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}

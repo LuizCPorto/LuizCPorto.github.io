@@ -1,0 +1,11 @@
+/* ~/stack.json */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 1.25rem; }
+.skill-group {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.5rem;
+}
+.skill-group-title { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+.skill-list { display: flex; flex-direction: column; gap: .6rem; }
+.skill-item { display: flex; align-items: center; gap: 10px; }
+.skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.skill-name { font-size: 14px; color: var(--text-primary); }

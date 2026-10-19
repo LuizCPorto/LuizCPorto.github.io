@@ -1,0 +1,54 @@
+/*
+ * Base comum das seções migradas do site antigo (sobre, experiência, projetos, stack, certificações, contato).
+ * O CSS de cada seção fica em sections/<seção>.css.
+ * O layout é o original; as variáveis antigas apontam para os tokens do DESIGN.md.
+ * Ainda vão ser redesenhadas seguindo a seção 4 do DESIGN.md.
+ */
+.sec {
+  --border: var(--line);
+  --text-primary: var(--fg);
+  --text-secondary: var(--muted);
+  --text-muted: var(--muted);
+  --accent: var(--green);
+  --accent-soft: var(--surface-2);
+  --accent-line: var(--green-deep);
+  --radius: var(--radius-win);
+  --max: 820px;
+
+  padding: 6rem 2rem; max-width: var(--max); margin: 0 auto;
+}
+
+/* título no formato de arquivo, igual à aba da nav */
+.file-title {
+  margin: 0 0 .75rem;
+  font-family: var(--font-display); font-size: .9rem; font-weight: 600;
+  color: var(--green);
+}
+h2.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.4vw, 32px);
+  font-weight: 600; font-stretch: 85%;
+  line-height: 1.25; letter-spacing: -.02em;
+  color: var(--text-primary);
+  text-wrap: balance;
+  margin: 0 0 3rem;
+}
+.sec p { margin: 0; }
+
+/* ─── FOOTER ─── */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.noscript {
+  max-width: var(--container); margin: 0 auto; padding: 2rem var(--gutter-r) 2rem var(--gutter-l);
+  color: var(--muted);
+}
+
+@media (max-width: 680px) {
+  .sec { padding: 4.5rem 1rem; }
+}

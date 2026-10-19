@@ -1,0 +1,13 @@
+/* ~/certificados/ */
+.certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1rem; }
+.cert-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.25rem 1.5rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  transition: border-color .2s;
+}
+.cert-card:hover { border-color: var(--accent); }
+.cert-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
+.cert-name { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
+.cert-meta { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+.cert-badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: var(--radius-pill); margin-top: 5px; background: var(--accent-soft); color: var(--accent); }

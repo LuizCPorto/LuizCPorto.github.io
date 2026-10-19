@@ -2,829 +2,118 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Luiz Carlos Porto — Software Engineer</title>
+<meta name="description" content="Luiz Carlos Porto — dev .NET em Palmas, TO. Engenheiro de software da ESMAT/TJTO: sistema acadêmico, integrações com Moodle e TJTO em C# e SQL, e certificados com Vertex AI.">
+<meta name="theme-color" content="#0E110F">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,300..800&family=Geist:wght@400;500;600&display=swap">
 
-  :root {
-    --bg: #FAFAF8;
-    --surface: #FFFFFF;
-    --border: #E8E6E0;
-    --text-primary: #1A1A18;
-    --text-secondary: #6B6B67;
-    --text-muted: #A0A09A;
-    --accent: #1D9E75;
-    --accent-light: #E1F5EE;
-    --accent-mid: #0F6E56;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-    --radius: 12px;
-    --radius-sm: 6px;
-    --max: 820px;
-  }
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/nav.css">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/terminal.css">
+<link rel="stylesheet" href="assets/css/palette.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+<link rel="stylesheet" href="assets/css/sections/sobre.css">
+<link rel="stylesheet" href="assets/css/sections/experiencia.css">
+<link rel="stylesheet" href="assets/css/sections/projetos.css">
+<link rel="stylesheet" href="assets/css/sections/stack.css">
+<link rel="stylesheet" href="assets/css/sections/certificados.css">
+<link rel="stylesheet" href="assets/css/sections/contato.css">
 
-  body.dark {
-    --bg: #0F0F0E;
-    --surface: #1A1A18;
-    --border: #2C2C29;
-    --text-primary: #F0EFEA;
-    --text-secondary: #A0A09A;
-    --text-muted: #5F5E5A;
-    --accent: #1D9E75;
-    --accent-light: #0D2E22;
-    --accent-mid: #3ECFA0;
-  }
-  body.dark nav { background: rgba(15,15,14,0.88); }
-  body.dark .contact-box { background: #1A1A18; border: 1px solid #2C2C29; }
-  body.dark .contact-box h2 { color: var(--text-primary); }
-  body.dark .contact-box p { color: var(--text-secondary); }
-  body.dark .contact-link { color: var(--text-primary); border-color: var(--border); }
-  body.dark footer { background: var(--bg); }
-  body.dark .btn-primary { background: var(--surface); color: var(--text-primary); border: 1px solid var(--border); }
-  body.dark .btn-primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-  body.dark .btn-outline { border-color: var(--border); color: var(--text-secondary); }
-  body.dark .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-  body.dark #lang-btn { color: var(--text-secondary); border-color: var(--border); }
-  body.dark #lang-btn:hover { border-color: var(--accent); color: var(--accent); }
-  body.dark #theme-btn { border-color: var(--border); }
-  body.dark #theme-btn:hover { border-color: var(--accent); }
-  body.dark .btn-cv-link { background: var(--surface) !important; color: var(--text-primary) !important; border: 1px solid var(--border) !important; }
-  body.dark .btn-cv-link:hover { background: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; }
-  body.dark .project-link { color: var(--accent); }
-  body.dark .contact-link { color: var(--text-primary); }
-  body.dark .timeline-tag { background: #2C2C29; color: var(--text-secondary); border-color: #3C3C38; }
-  body.dark .cert-badge { background: var(--accent-light); color: var(--accent-mid); }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--text-primary);
-    font-size: 16px;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,250,248,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--text-primary);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--text-secondary);
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-
-  /* ─── LAYOUT ─── */
-  section { padding: 6rem 2rem; max-width: var(--max); margin: 0 auto; }
-  .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-  }
-  h2.section-title {
-    font-family: var(--serif);
-    font-size: clamp(28px, 4vw, 38px);
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    margin-bottom: 3rem;
-  }
-
-  /* ─── HERO ─── */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding-top: 56px;
-  }
-  .hero-eyebrow {
-    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
-  }
-  .hero-name {
-    font-family: var(--serif);
-    font-size: clamp(42px, 7vw, 76px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.6s 0.35s forwards;
-  }
-  .hero-name em { font-style: italic; color: var(--accent); }
-  .hero-desc {
-    font-size: 17px; font-weight: 300;
-    color: var(--text-secondary);
-    max-width: 520px; line-height: 1.75;
-    margin-bottom: 2.5rem;
-    opacity: 0; animation: fadeUp 0.6s 0.5s forwards;
-  }
-  .hero-cta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.6s 0.65s forwards;
-  }
-  .btn-primary {
-    background: var(--text-primary); color: #fff;
-    padding: 12px 24px; border-radius: var(--radius-sm);
-    font-size: 14px; font-weight: 400; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-  .btn-outline {
-    border: 1px solid var(--border); color: var(--text-primary);
-    padding: 12px 24px; border-radius: var(--radius-sm);
-    font-size: 14px; font-weight: 400; text-decoration: none;
-    transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-
-  /* ─── SOBRE ─── */
-  #sobre .sobre-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
-  }
-  .sobre-text p { color: var(--text-secondary); margin-bottom: 1.25rem; }
-  .sobre-text p:last-child { margin-bottom: 0; }
-  .sobre-aside { display: flex; flex-direction: column; gap: 1rem; }
-  .info-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.25rem;
-  }
-  .info-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
-  .info-card-val { font-size: 14px; color: var(--text-primary); font-weight: 400; }
-  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    display: inline-block; font-size: 12px; font-weight: 400;
-    padding: 4px 10px; border-radius: 99px;
-    background: var(--accent-light); color: var(--accent-mid);
-    border: 1px solid #9FE1CB;
-  }
-
-  /* ─── EXPERIENCIA ─── */
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .timeline-item {
-    display: grid; grid-template-columns: 160px 1fr;
-    gap: 0 2rem; position: relative; padding-bottom: 3rem;
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute; left: 167px; top: 6px; bottom: 0;
-    width: 1px; background: var(--border);
-  }
-  .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-item:last-child::before { display: none; }
-  .timeline-date { font-size: 12px; color: var(--text-muted); padding-top: 4px; text-align: right; line-height: 1.5; }
-  .timeline-dot {
-    position: absolute; left: 162px; top: 5px;
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--accent); border: 2px solid var(--bg);
-    box-shadow: 0 0 0 1px var(--accent);
-  }
-  .timeline-content { }
-  .timeline-company { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
-  .timeline-role { font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 0.75rem; }
-  .timeline-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-  .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
-  .timeline-tag {
-    font-size: 11px; padding: 3px 8px; border-radius: 4px;
-    background: #F1EFE8; color: #5F5E5A;
-    border: 1px solid #D3D1C7;
-  }
-
-  /* ─── PROJETOS ─── */
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.25rem;
-  }
-  .project-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .project-icon {
-    width: 40px; height: 40px; border-radius: 8px;
-    background: var(--accent-light); display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.25rem; font-size: 20px;
-  }
-  .project-name { font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem; }
-  .project-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; flex: 1; }
-  .project-footer { margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; }
-  .project-stack { display: flex; flex-wrap: wrap; gap: 5px; }
-  .project-stack span { font-size: 11px; padding: 2px 7px; border-radius: 4px; background: #F1EFE8; color: #5F5E5A; }
-  .project-link { font-size: 12px; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
-  .project-link:hover { color: var(--accent-mid); }
-
-  /* ─── HABILIDADES ─── */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
-  .skill-group {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.5rem;
-  }
-  .skill-group-title { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
-  .skill-list { display: flex; flex-direction: column; gap: 0.6rem; }
-  .skill-item { display: flex; align-items: center; gap: 10px; }
-  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-  .skill-name { font-size: 14px; color: var(--text-primary); }
-
-  /* ─── CERTIFICADOS ─── */
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
-  .cert-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.25rem 1.5rem;
-    display: flex; align-items: flex-start; gap: 1rem;
-    transition: border-color 0.2s;
-  }
-  .cert-card:hover { border-color: var(--accent); }
-  .cert-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
-  .cert-name { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
-  .cert-meta { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
-  .cert-badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 99px; margin-top: 5px; background: var(--accent-light); color: var(--accent-mid); }
-
-  /* ─── CONTATO ─── */
-  #contato { padding-bottom: 8rem; }
-  .contact-box {
-    background: var(--text-primary); border-radius: var(--radius);
-    padding: 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
-  }
-  .contact-box h2 { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); color: #fff; font-weight: 400; margin: 0; }
-  .contact-box p { color: rgba(255,255,255,0.55); font-size: 15px; margin-top: 8px; }
-  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-  .contact-link {
-    color: #fff; text-decoration: none;
-    font-size: 14px; display: flex; align-items: center; gap: 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 0.75rem;
-    transition: color 0.2s;
-  }
-  .contact-link:last-child { border-bottom: none; padding-bottom: 0; }
-  .contact-link:hover { color: #5DCAA5; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .reveal {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 680px) {
-    #sobre .sobre-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .timeline-item { grid-template-columns: 1fr; }
-    .timeline-date { text-align: left; }
-    .timeline-item::before { display: none; }
-    .timeline-dot { display: none; }
-    .contact-box { padding: 2.5rem; }
-    nav { padding: 0 1rem; }
-    .nav-links { gap: 1.25rem; }
-  }
-</style>
+<script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
 
-<nav>
-  <a href="#hero" class="nav-logo">LC Porto</a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a></li>
-    <li><a href="#experiencia" data-pt="Experiência" data-en="Experience">Experiência</a></li>
-    <li><a href="#projetos" data-pt="Projetos" data-en="Projects">Projetos</a></li>
-    <li><a href="#habilidades" data-pt="Skills" data-en="Skills">Skills</a></li>
-    <li><a href="#contato" data-pt="Contato" data-en="Contact">Contato</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:8px;margin-left:1.5rem;">
-    <!-- Lang toggle -->
-    <button id="lang-btn" onclick="toggleLang()" title="Mudar idioma" style="background:transparent;border:1px solid var(--border);border-radius:99px;padding:4px 12px;font-size:12px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all 0.2s;font-family:var(--sans);">PT</button>
-    <!-- Dark mode toggle -->
-    <button id="theme-btn" onclick="toggleTheme()" title="Alternar tema" style="background:transparent;border:1px solid var(--border);border-radius:99px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;font-size:16px;">🌙</button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <p class="hero-eyebrow" id="hero-eyebrow">Desenvolvedor .NET · Palmas, Tocantins — Brasil</p>
-  <h1 class="hero-name">Luiz Carlos<br><em>Porto do Carmo</em></h1>
-  <p class="hero-desc" id="hero-desc">
-    Desenvolvedor de Software com foco em back-end, C#, ASP.NET Core, SQL e APIs REST. Atuo na construção de sistemas institucionais, integrações entre plataformas e automações que reduzem processos manuais.
-  </p>
-  <div class="hero-cta">
-    <a href="#projetos" class="btn-primary" id="btn-projects">Ver projetos →</a>
-    <a href="https://linkedin.com/in/luizcporto/" target="_blank" class="btn-outline">LinkedIn ↗</a>
-    <a href="https://github.com/LuizCPorto" target="_blank" class="btn-outline">GitHub ↗</a>
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre">
-  <p class="section-label reveal" id="label-sobre">Sobre mim</p>
-  <h2 class="section-title reveal" id="title-sobre">Desenvolvedor apaixonado<br>por sistemas que fazem diferença</h2>
-  <div class="sobre-grid">
-    <div class="sobre-text reveal">
-      <!-- Foto centralizada e destacada -->
-      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem;margin-bottom:1.75rem;">
-        <img src="assets/foto.jpeg" alt="Luiz Carlos Porto" style="width:140px;height:140px;border-radius:16px;object-fit:cover;object-position:top center;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,0.08);" />
-        <a href="curriculo-luiz-porto.pdf" download="Curriculo_LuizCarlosPorto.pdf" class="btn-cv-link" style="display:inline-flex;align-items:center;gap:8px;background:var(--text-primary);color:#fff;padding:10px 20px;border-radius:var(--radius-sm);font-size:13px;font-weight:400;text-decoration:none;transition:background 0.2s,color 0.2s,border-color 0.2s;">
-          <span id="btn-cv">↓ Baixar currículo</span>
-        </a>
-      </div>
-      <p id="sobre-p1">Sou desenvolvedor de software júnior com experiência em sistemas institucionais, atuando principalmente com C#, ASP.NET Core, SQL, APIs REST e integrações entre plataformas. Na ESMAT/TJTO, atuo com autonomia no ciclo completo de desenvolvimento do levantamento de requisitos ao deploy.</p>
-            <p id="sobre-p2">Desenvolvi integrações com APIs institucionais, sincronização com o Moodle e automação de processos acadêmicos com apoio da Vertex AI (Google Cloud), reduzindo etapas manuais e melhorando o fluxo operacional do setor.</p>
-      <p id="sobre-p3">Estou concluindo o Bacharelado em Ciência da Computação pela UFT (previsão julho/2026), com TCC aprovado com nota 10. Também possuo formação técnica em Informática pelo IFBA.</p>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#hero" data-i18n-attr="aria-label:nav.home" aria-label="Início"><span class="user">luiz</span><span class="host">@porto:~$</span><span class="cursor" aria-hidden="true"></span></a>
+    <nav class="tabs" data-i18n-attr="aria-label:nav.sections" aria-label="Seções">
+      <a class="tab" href="#sobre"><span class="dot" aria-hidden="true">●</span>sobre.md</a>
+      <a class="tab" href="#experiencia"><span class="dot" aria-hidden="true">●</span>experiencia.log</a>
+      <a class="tab" href="#projetos"><span class="dot" aria-hidden="true">●</span>projetos/</a>
+      <a class="tab" href="#stack"><span class="dot" aria-hidden="true">●</span>stack.json</a>
+      <a class="tab" href="#contato"><span class="dot" aria-hidden="true">●</span>contato.sh</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="search-btn" id="open-palette" type="button" aria-haspopup="dialog" aria-keyshortcuts="/" data-i18n-attr="aria-label:nav.openPalette" aria-label="Abrir paleta de comandos"><span class="label" data-i18n="nav.commands">comandos</span><kbd>/</kbd></button>
+      <button class="lang" id="lang-btn" type="button" data-i18n-attr="aria-label:nav.lang,title:nav.lang" aria-label="Idioma: português. Mudar para inglês">PT</button>
     </div>
-    <div class="sobre-aside reveal">
-      <div class="info-card">
-        <div class="info-card-label" id="info-loc">Localização</div>
-        <div class="info-card-val" id="info-loc-val">Palmas, Tocantins — Brasil</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label" id="info-stack">Stack principal</div>
-        <div class="tag-row">
-          <span class="tag">C#</span>
-          <span class="tag">ASP.NET Core</span>
-          <span class="tag">Entity Framework</span>
-          <span class="tag">SQL Server</span>
-          <span class="tag">APIs REST</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-labelledby="hero-name">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="status"><span class="pulse" aria-hidden="true"></span><span data-content="status"></span></p>
+        <!-- o nome vem do content.js; o texto abaixo só aparece se o JS não carregar -->
+        <h1 class="name" id="hero-name">Luiz Carlos Porto</h1>
+        <p class="lede" data-content="lede"></p>
+        <div class="ctas">
+          <a class="btn primary" href="#projetos">cd ~/projetos <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn" data-link="github" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a class="btn" data-link="linkedin" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
+        <p class="meta">
+          <span><span data-i18n="hero.local">local</span> <b><span data-content="city"></span> · <time id="clock">--:--</time></b></span>
+          <span><span data-i18n="hero.uptime">uptime no TJTO</span> <b id="uptime">--</b></span>
+          <span>TCC <b data-content="tcc.grade"></b></span>
+        </p>
       </div>
-      <div class="info-card">
-        <div class="info-card-label" id="info-lang">Idiomas</div>
-        <div class="info-card-val" id="info-lang-val">Português (nativo) · Inglês (intermediário)</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label" id="info-avail">Disponibilidade</div>
-        <div class="info-card-val" id="info-avail-val">Aberto a oportunidades CLT ou PJ</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- TCC -->
-  <div class="card reveal" style="background:var(--accent-light);border:1px solid #9FE1CB;border-radius:var(--radius);padding:1.5rem 1.75rem;margin-top:3rem;">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;">
-      <span style="font-size:20px;">🎓</span>
-      <span style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-mid);" id="tcc-badge">Trabalho de Conclusão de Curso · Aprovado com Nota 10</span>
+      <div class="term" id="term" role="region" data-i18n-attr="aria-label:term.title" aria-label="Terminal interativo">
+        <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>~/luiz — zsh</span></div>
+        <div class="term-body" id="term-out" role="log" aria-live="polite" tabindex="0" data-i18n-attr="aria-label:term.output" aria-label="Saída do terminal"></div>
+        <form class="term-input" id="term-form" autocomplete="off">
+          <label for="term-cmd">➜ ~</label>
+          <input id="term-cmd" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="send"
+                 data-i18n-attr="placeholder:term.placeholder,aria-label:term.input" placeholder="digite help" aria-label="Comando do terminal">
+        </form>
+      </div>
     </div>
-    <div style="font-size:16px;font-weight:500;color:var(--text-primary);margin-bottom:0.6rem;line-height:1.4;" id="tcc-title">O uso de Beacons Bluetooth Low Energy (BLE) para frequência na ESMAT</div>
-    <div style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;" id="tcc-desc">Proposta e validação de um modelo arquitetural para controle automatizado de frequência escolar usando tecnologia BLE/IoT, integrado ao aplicativo da Secretaria Acadêmica Virtual (SAV) da ESMAT. Elimina chamadas manuais e reduz falhas humanas na gestão acadêmica.</div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;">
-      <span style="font-size:12px;padding:3px 10px;border-radius:99px;background:#fff;color:var(--accent-mid);border:1px solid #9FE1CB;">C#</span>
-      <span style="font-size:12px;padding:3px 10px;border-radius:99px;background:#fff;color:var(--accent-mid);border:1px solid #9FE1CB;">React Native</span>
-      <span style="font-size:12px;padding:3px 10px;border-radius:99px;background:#fff;color:var(--accent-mid);border:1px solid #9FE1CB;">BLE / Beacons</span>
-      <span style="font-size:12px;padding:3px 10px;border-radius:99px;background:#fff;color:var(--accent-mid);border:1px solid #9FE1CB;">IoT</span>
-      <span style="font-size:12px;padding:3px 10px;border-radius:99px;background:#fff;color:var(--accent-mid);border:1px solid #9FE1CB;">UFT · 2026</span>
-    </div>
-  </div>
+  </section>
 
-</section>
+  <!-- seções em sections/*.html, carregadas por assets/js/sections.js -->
+  <div data-include="sections/sobre.html"></div>
+  <div data-include="sections/experiencia.html"></div>
+  <div data-include="sections/projetos.html"></div>
+  <div data-include="sections/stack.html"></div>
+  <div data-include="sections/certificados.html"></div>
+  <div data-include="sections/contato.html"></div>
 
-<!-- EXPERIÊNCIA -->
-<section id="experiencia">
-  <p class="section-label reveal" id="label-exp">Trajetória</p>
-  <h2 class="section-title reveal" id="title-exp">Experiência profissional</h2>
-  <div class="timeline">
+</main>
 
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Jun 2024<br>Atualmente</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-company">ESMAT / TJTO</div>
-        <div class="timeline-role">Engenheiro de Software Júnior</div>
-        <div class="timeline-desc">Atuo com autonomia no desenvolvimento, manutenção e evolução de sistemas acadêmicos institucionais. Desenvolvi o módulo de Pós-graduações do zero, implementei integrações via APIs REST com sistemas internos do TJTO e automatizei processos acadêmicos com apoio da Vertex AI (Google Cloud), reduzindo etapas manuais e melhorando o fluxo operacional do setor.</div>
-        <div class="timeline-tags">
-          <span class="timeline-tag">C#</span>
-          <span class="timeline-tag">ASP.NET Core MVC</span>
-          <span class="timeline-tag">SQL Server</span>
-          <span class="timeline-tag">Entity Framework</span>
-          <span class="timeline-tag">Vertex AI</span>
-          <span class="timeline-tag">APIs REST</span>
-        </div>
-      </div>
-    </div>
+<noscript>
+  <p class="noscript">Este site precisa de JavaScript para carregar as seções. Currículo em PDF: <a href="curriculo-luiz-porto.pdf">curriculo-luiz-porto.pdf</a></p>
+</noscript>
 
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Mar 2023<br>Dez 2023</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-company">UFT</div>
-        <div class="timeline-role">Monitor Acadêmico — POO</div>
-        <div class="timeline-desc">Conduzi sessões de monitoria em Programação Orientada a Objetos e fui responsável pela criação do Manual do Aluno oficial para o curso de Licenciatura em Ciência da Computação.</div>
-        <div class="timeline-tags">
-          <span class="timeline-tag">POO</span>
-          <span class="timeline-tag">Didática técnica</span>
-          <span class="timeline-tag">Documentação</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Out 2023<br>Jun 2024</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-company">ESMAT / TJTO</div>
-        <div class="timeline-role">Estagiário de Suporte de TI</div>
-        <div class="timeline-desc">Suporte técnico aos sistemas SAV e AVA (Moodle), manutenção de infraestrutura física e desenvolvimento de profundo entendimento da arquitetura institucional o que culminou na promoção direta para engenheiro de software.</div>
-        <div class="timeline-tags">
-          <span class="timeline-tag">Suporte TI</span>
-          <span class="timeline-tag">Redes</span>
-          <span class="timeline-tag">Moodle</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Ago 2021<br>Fev 2022</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-company">Dantas Eletro</div>
-        <div class="timeline-role">Estagiário em Programação</div>
-        <div class="timeline-desc">Desenvolvimento de sistema ERP do zero. Responsável pelo módulo de precificação e cálculo de impostos, traduzindo regras tributárias complexas em lógica sistêmica funcional.</div>
-        <div class="timeline-tags">
-          <span class="timeline-tag">ERP</span>
-          <span class="timeline-tag">UI/UX</span>
-          <span class="timeline-tag">Tributação</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJETOS -->
-<section id="projetos">
-  <p class="section-label reveal" id="label-proj">Portfólio</p>
-  <h2 class="section-title reveal" id="title-proj">Projetos em destaque</h2>
-  <div class="projects-grid">
-
-    <div class="project-card reveal">
-      <div class="project-icon">🎓</div>
-      <div class="project-name">SAV — Sistema de Secretaria Acadêmica
-        <span style="display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;background:#F1EFE8;color:#5F5E5A;border:1px solid #D3D1C7;margin-left:8px;vertical-align:middle;">Privado</span>
-      </div>
-      <div class="project-desc">Sistema institucional de secretaria acadêmica no qual atuo no desenvolvimento, manutenção e evolução de funcionalidades, integrações e automações internas na ESMAT/TJTO. Gerencia alunos, matrículas, disciplinas, notas e emissão de documentos, com automação de certificados via Vertex AI (Google Cloud).</div>
-      <div class="project-footer">
-        <div class="project-stack">
-          <span>.NET 5</span><span>ASP.NET Core</span><span>MySQL</span><span>Entity Framework</span><span>Vertex AI</span>
-        </div>
-        <span class="project-link" style="color:var(--text-muted);cursor:default;">🔒 Código privado</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-icon">🍕</div>
-      <div class="project-name">App de Gestão para Pizzaria</div>
-      <div class="project-desc">Sistema completo de gestão para pizzarias, cobrindo pedidos, cardápio, controle de estoque e fluxo operacional. Back-end em C# com ASP.NET Core e front-end mobile em React Native com Expo Go, desenvolvido com foco em usabilidade para o dia a dia do estabelecimento.</div>
-      <div class="project-footer">
-        <div class="project-stack">
-          <span>C#</span><span>ASP.NET Core</span><span>React Native</span><span>Expo Go</span><span>Entity Framework</span>
-        </div>
-        <a href="https://github.com/MiniPizza-du-Luiz" target="_blank" class="project-link">GitHub ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-icon">⚽</div>
-      <div class="project-name">Análise Quantitativa de Futebol</div>
-      <div class="project-desc">Bot de análise quantitativa para ligas de futebol europeias. Aplica o modelo matemático de Dixon-Coles para calcular probabilidades e Expected Goals (xG), cruzando os dados com um modelo de IA local (Ollama) para validar palpites e identificar apostas de valor real com base em Fair Odds.</div>
-      <div class="project-footer">
-        <div class="project-stack">
-          <span>Python</span><span>Dixon-Coles</span><span>xG</span><span>Ollama</span><span>IA Local</span>
-        </div>
-        <a href="https://github.com/LuizCPorto/Analise-esportiva-Ia" target="_blank" class="project-link">GitHub ↗</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- HABILIDADES -->
-<section id="habilidades">
-  <p class="section-label reveal" id="label-skills">Tecnologias</p>
-  <h2 class="section-title reveal" id="title-skills">Habilidades técnicas</h2>
-  <div class="skills-grid">
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Back-end</div>
-      <div class="skill-list">
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">C# / .NET</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">ASP.NET Core MVC</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Entity Framework Core</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">APIs RESTful</span></div>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Banco de dados</div>
-      <div class="skill-list">
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">SQL Server</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">MySQL</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Modelagem de dados</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Integração de sistemas</span></div>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Front-end</div>
-      <div class="skill-list">
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">JavaScript / AJAX</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">React / Expo</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">HTML5 / CSS3</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Bootstrap</span></div>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-title">DevOps & IA</div>
-      <div class="skill-list">
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Git / GitHub</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">GitHub Actions</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Vertex AI Studio</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">LLMs / Prompt Design</span></div>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Governança</div>
-      <div class="skill-list">
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">LGPD</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Arquitetura de sistemas</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">POO</span></div>
-        <div class="skill-item"><span class="skill-dot"></span><span class="skill-name">Segurança de dados</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICADOS -->
-<section id="certificados">
-  <p class="section-label reveal" id="label-certs">Formação contínua</p>
-  <h2 class="section-title reveal" id="title-certs">Certificações</h2>
-  <div class="certs-grid">
-    <div class="cert-card reveal">
-      <div class="cert-icon">☁️</div>
-      <div>
-        <div class="cert-name">IA Generativa com Google Cloud</div>
-        <div class="cert-meta">ESMAT · 2025 · 30h</div>
-        <span class="cert-badge">Google Cloud</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🤖</div>
-      <div>
-        <div class="cert-name">Fluência sobre Inteligência Artificial</div>
-        <div class="cert-meta">ESMAT & Microsoft Brasil · 2025 · 12h</div>
-        <span class="cert-badge">Microsoft</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🔒</div>
-      <div>
-        <div class="cert-name">Comitê Gestor de Proteção de Dados (LGPD)</div>
-        <div class="cert-meta">ESMAT · 2025 · 8h</div>
-        <span class="cert-badge">Governança</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">⚙️</div>
-      <div>
-        <div class="cert-name">Dominando o ASP.NET Core MVC</div>
-        <div class="cert-meta">Eduardo Pires · Desenvolvedor.io · 12h</div>
-        <span class="cert-badge">.NET</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🗄️</div>
-      <div>
-        <div class="cert-name">Introdução ao Entity Framework Core</div>
-        <div class="cert-meta">Rafael Almeida · Desenvolvedor.io · 3h</div>
-        <span class="cert-badge">.NET</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🚀</div>
-      <div>
-        <div class="cert-name">Dominando o GitHub Actions</div>
-        <div class="cert-meta">Thiago Lunardi · Desenvolvedor.io · 5h</div>
-        <span class="cert-badge">DevOps</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🌿</div>
-      <div>
-        <div class="cert-name">Git e GitHub do Zero ao Avançado</div>
-        <div class="cert-meta">Thiago Lunardi · Desenvolvedor.io · 6h</div>
-        <span class="cert-badge">DevOps</span>
-      </div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🔧</div>
-      <div>
-        <div class="cert-name">Introdução ao DevOps</div>
-        <div class="cert-meta">Igor Abade · Desenvolvedor.io · 4h</div>
-        <span class="cert-badge">DevOps</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <div class="contact-box reveal" id="contact-box">
-    <div>
-      <h2 id="contact-title">Vamos construir<br>algo juntos?</h2>
-      <p id="contact-sub">Aberto a oportunidades CLT, PJ ou freela.</p>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:luizportocarlodocarmo123@gmail.com" class="contact-link">
-        <span>✉</span> luizportocarlodocarmo123@gmail.com
-      </a>
-      <a href="https://linkedin.com/in/luizcporto/" target="_blank" class="contact-link">
-        <span>in</span> linkedin.com/in/luizcporto
-      </a>
-      <a href="https://github.com/LuizCPorto" target="_blank" class="contact-link">
-        <span>⌥</span> github.com/LuizCPorto
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span id="footer-text">© 2026 Luiz Carlos Porto do Carmo.</span>
+<footer class="site-footer">
+  <span data-i18n="footer">© 2026 Luiz Carlos Porto do Carmo.</span>
 </footer>
 
-<script>
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 60);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(el => obs.observe(el));
-</script>
-
-<script>
-// ── THEME ──
-function toggleTheme() {
-  const dark = document.body.classList.toggle('dark');
-  document.getElementById('theme-btn').textContent = dark ? '☀️' : '🌙';
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-}
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
-  document.getElementById('theme-btn').textContent = '☀️';
-}
-
-// ── I18N ──
-const i18n = {
-  pt: {
-    'hero-eyebrow': 'Desenvolvedor .NET · Palmas, Tocantins',
-    'hero-desc': 'Desenvolvedor de Software com foco em back-end, C#, ASP.NET Core, SQL e APIs REST. Atuo na construção de sistemas institucionais, integrações entre plataformas e automações que reduzem processos manuais.',
-    'btn-projects': 'Ver projetos →',
-    'stat-exp': 'Anos de experiência',
-    'stat-proj': 'Projetos entregues',
-    'stat-certs': 'Certificações',
-    'stat-tcc': 'Nota no TCC',
-    'label-sobre': 'Sobre mim',
-    'title-sobre': 'Desenvolvedor apaixonado<br>por sistemas que fazem diferença',
-    'sobre-p1': 'Sou desenvolvedor de software júnior com experiência em ambiente de produção institucional. Atuo como referência técnica no setor de tecnologia da ESMAT/TJTO, onde lidero o ciclo completo de projetos do levantamento de requisitos ao deploy.',
-    'sobre-p2': 'Construí integrações com APIs institucionais, sincronização com Moodle e, mais recentemente, um sistema de geração automatizada de certificados acadêmicos integrando a Vertex AI do Google Cloud.',
-    'sobre-p3': 'Estou concluindo o Bacharelado em Ciência da Computação pela UFT, com previsão para julho de 2026, e TCC concluído com nota 10.',
-    'info-loc': 'Localização', 'info-loc-val': 'Palmas, Tocantins — Brasil',
-    'info-stack': 'Stack principal',
-    'info-lang': 'Idiomas', 'info-lang-val': 'Português (nativo) · Inglês (intermediário)',
-    'info-avail': 'Disponibilidade', 'info-avail-val': 'Aberto a oportunidades CLT ou PJ',
-    'tcc-badge': 'Trabalho de Conclusão de Curso · Aprovado com Nota 10',
-    'tcc-title': 'O uso de Beacons Bluetooth Low Energy (BLE) para frequência na ESMAT',
-    'tcc-desc': 'Proposta e validação de um modelo arquitetural para controle automatizado de frequência escolar usando tecnologia BLE/IoT, integrado ao aplicativo da Secretaria Acadêmica Virtual (SAV) da ESMAT. Elimina chamadas manuais e reduz falhas humanas na gestão acadêmica.',
-    'label-exp': 'Trajetória', 'title-exp': 'Experiência profissional',
-    'label-proj': 'Portfólio', 'title-proj': 'Projetos em destaque',
-    'label-skills': 'Tecnologias', 'title-skills': 'Habilidades técnicas',
-    'label-certs': 'Formação contínua', 'title-certs': 'Certificações',
-    'contact-title': 'Vamos construir<br>algo juntos?',
-    'contact-sub': 'Aberto a oportunidades CLT, PJ ou freela.',
-    'btn-cv': '↓ Baixar currículo',
-    'footer': '© 2026 Luiz Carlos Porto do Carmo.',
-  },
-  en: {
-    'hero-eyebrow': '.NET Developer · Palmas, Tocantins — Brazil',
-    'hero-desc': 'Back-end specialist in C#, ASP.NET Core & SQL. I build institutional systems, platform integrations and automations that reduce manual processes.',
-    'btn-projects': 'View projects →',
-    'stat-exp': 'Years in tech',
-    'stat-proj': 'Projects delivered',
-    'stat-certs': 'Certifications',
-    'stat-tcc': 'Thesis approved',
-    'label-sobre': 'About me',
-    'title-sobre': 'Developer passionate<br>about systems that matter',
-    'sobre-p1': 'I am a junior software developer with experience in institutional systems, working mainly with C#, ASP.NET Core, SQL, REST APIs and platform integrations. At ESMAT/TJTO, I work autonomously across the full development lifecycle from requirements gathering to deployment.',
-    'sobre-p2': 'I have developed integrations with institutional APIs, data synchronization with Moodle, and automation of academic processes using Vertex AI (Google Cloud), reducing manual steps and improving operational flow.',
-    'sobre-p3': 'I am completing my Bachelor\'s degree in Computer Science at UFT (expected July 2026), with my thesis approved with a perfect grade of 10. I also hold a technical degree in IT from IFBA.',
-    'info-loc': 'Location', 'info-loc-val': 'Palmas, Tocantins — Brazil',
-    'info-stack': 'Main stack',
-    'info-lang': 'Languages', 'info-lang-val': 'Portuguese (native) · English (intermediate)',
-    'info-avail': 'Availability', 'info-avail-val': 'Open to full-time or freelance roles',
-    'tcc-badge': 'Bachelor\'s Thesis · Approved with Grade 10/10',
-    'tcc-title': 'Using Bluetooth Low Energy (BLE) Beacons for Attendance Tracking at ESMAT',
-    'tcc-desc': 'Proposal and validation of an architectural model for automated student attendance using BLE/IoT technology, integrated into the Academic Virtual Secretary (SAV) app at ESMAT. Eliminates manual roll calls and reduces human error in academic management.',
-    'label-exp': 'Career', 'title-exp': 'Professional experience',
-    'label-proj': 'Portfolio', 'title-proj': 'Featured projects',
-    'label-skills': 'Technologies', 'title-skills': 'Technical skills',
-    'label-certs': 'Continuous learning', 'title-certs': 'Certifications',
-    'contact-title': 'Let\'s build<br>something together?',
-    'contact-sub': 'Open to full-time, freelance or contract opportunities.',
-    'btn-cv': '↓ Download resume',
-    'footer': '© 2026 Luiz Carlos Porto do Carmo.',
-  }
-};
-
-let currentLang = localStorage.getItem('lang') || 'pt';
-
-function applyLang(lang) {
-  const t = i18n[lang];
-  const set = (id, val) => { const el = document.getElementById(id); if(el) el.innerHTML = val; };
-  const setText = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val; };
-
-  set('hero-eyebrow', t['hero-eyebrow']);
-  set('hero-desc', t['hero-desc']);
-  set('btn-projects', t['btn-projects']);
-  setText('stat-exp', t['stat-exp']);
-  setText('stat-proj', t['stat-proj']);
-  setText('stat-certs', t['stat-certs']);
-  setText('stat-tcc', t['stat-tcc']);
-  set('label-sobre', t['label-sobre']);
-  set('title-sobre', t['title-sobre']);
-  set('sobre-p1', t['sobre-p1']);
-  set('sobre-p2', t['sobre-p2']);
-  set('sobre-p3', t['sobre-p3']);
-  setText('info-loc', t['info-loc']); setText('info-loc-val', t['info-loc-val']);
-  setText('info-stack', t['info-stack']);
-  setText('info-lang', t['info-lang']); setText('info-lang-val', t['info-lang-val']);
-  setText('info-avail', t['info-avail']); setText('info-avail-val', t['info-avail-val']);
-  setText('tcc-badge', t['tcc-badge']);
-  set('tcc-title', t['tcc-title']);
-  set('tcc-desc', t['tcc-desc']);
-  set('label-exp', t['label-exp']); set('title-exp', t['title-exp']);
-  set('label-proj', t['label-proj']); set('title-proj', t['title-proj']);
-  set('label-skills', t['label-skills']); set('title-skills', t['title-skills']);
-  set('label-certs', t['label-certs']); set('title-certs', t['title-certs']);
-  set('contact-title', t['contact-title']);
-  set('contact-sub', t['contact-sub']);
-  setText('btn-cv', t['btn-cv']);
-  set('footer-text', t['footer']);
-
-  // nav links
-  document.querySelectorAll('#nav-links a[data-pt]').forEach(a => {
-    a.textContent = t === i18n.pt ? a.dataset.pt : a.dataset.en;
-  });
-
-  document.getElementById('lang-btn').textContent = lang.toUpperCase();
-}
-
-function toggleLang() {
-  currentLang = currentLang === 'pt' ? 'en' : 'pt';
-  localStorage.setItem('lang', currentLang);
-  applyLang(currentLang);
-}
-
-// Apply on load
-applyLang(currentLang);
-</script>
+<div class="palette" id="palette" hidden>
+  <div class="palette-box" role="dialog" aria-modal="true" data-i18n-attr="aria-label:pal.label" aria-label="Paleta de comandos">
+    <input id="palette-input" type="text" role="combobox" aria-expanded="false" aria-controls="palette-list" aria-autocomplete="list"
+           autocomplete="off" spellcheck="false"
+           data-i18n-attr="placeholder:pal.placeholder,aria-label:pal.search" placeholder="para onde? (ex.: projetos, github, café)" aria-label="Buscar comando">
+    <ul id="palette-list" role="listbox" data-i18n-attr="aria-label:pal.label" aria-label="Paleta de comandos"></ul>
+    <div class="palette-foot" aria-hidden="true">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> <span data-i18n="pal.nav">navegar</span></span>
+      <span><kbd>enter</kbd> <span data-i18n="pal.open">abrir</span></span>
+      <span><kbd>esc</kbd> <span data-i18n="pal.close">fechar</span></span>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" aria-hidden="true" hidden></div>
+<div class="sr-only" id="sr-status" role="status"></div>
 
 </body>
 </html>

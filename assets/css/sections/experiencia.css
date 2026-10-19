@@ -1,0 +1,36 @@
+/* ~/experiencia.log */
+.timeline { display: flex; flex-direction: column; }
+.timeline-item {
+  display: grid; grid-template-columns: 160px 1fr;
+  gap: 0 2rem; position: relative; padding-bottom: 3rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute; left: 167px; top: 6px; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item:last-child::before { display: none; }
+.timeline-date { font-size: 12px; color: var(--text-muted); padding-top: 4px; text-align: right; line-height: 1.5; }
+.timeline-dot {
+  position: absolute; left: 162px; top: 5px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.timeline-company { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+.timeline-role { font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: .75rem; }
+.timeline-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+.timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: .75rem; }
+.timeline-tag {
+  font-size: 11px; padding: 3px 8px; border-radius: 4px;
+  background: var(--surface-2); color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 680px) {
+  .timeline-item { grid-template-columns: 1fr; }
+  .timeline-date { text-align: left; }
+  .timeline-item::before { display: none; }
+  .timeline-dot { display: none; }
+}
